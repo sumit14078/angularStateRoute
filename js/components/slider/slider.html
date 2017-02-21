@@ -1,0 +1,54 @@
+<div ng-show='!msg'>
+    {{msg}}    
+</div>
+
+<form name="user" ng-submit="submitForm()" novalidate>
+         <div class="col-md-offset-4 col-md-4">   
+            <div class="form-group">
+                <span class="input-label">First Name</span>
+                <input type="text" class="form-control" name="first_name" ng-model="data.first_name" placeholder="First Name" required>
+                <span ng-if="user.$submitted || user.first_name.$touched">
+                
+                    <span class="text-danger" ng-show="user.first_name.$error.required">Name is required.</span>
+                
+                </span>
+            </div>
+            <div class="form-group">
+                <span class="input-label">Last Name</span>
+                <input type="text" class="form-control" name="last_name" ng-model="data.last_name" placeholder="Last Name" required>
+                <span ng-if="user.$submitted || user.last_name.$touched">
+                
+                    <span class="text-danger" ng-show="user.last_name.$error.required">Last Name is required.</span>
+                
+                </span>
+            </div>
+            <div class="form-group">
+                <span class="input-label">Mobile Number</span>
+                <input type="number" class="form-control" name="mobile" ng-model="data.mobile" placeholder="Mobile Number" required>
+                <span ng-if="user.$submitted || user.mobile.$touched">
+                
+                    <span class="text-danger" ng-show="user.mobile.$error.required">Mobile Number is required.</span>
+                    <span class="text-danger" ng-show="user.mobile.$error.number">Only Numbers Allowed</span>
+                </span>
+            </div>
+             <div class="form-group">
+                <span class="input-label">Email Address</span>
+                <input type="email" class="form-control" name="email" ng-model="data.email" placeholder="Email Address" required>
+                <span ng-if="user.$submitted || user.email.$touched">
+                
+                    <span class="text-danger" ng-show="user.email.$error.required">Email Address is required.</span>
+                    <span class="text-danger" ng-show="user.email.$error.email">Invalid Email Address</span>
+                
+                </span>
+            </div>
+          <div class="form-group">
+            <span class="input-label">Address</span>
+            <textarea placeholder="Address" class="form-control" name="address" ng-model="data.address" required></textarea>
+            <span ng-if="user.$submitted || user.address.$touched">
+            <span class="text-danger" ng-show="user.address.$error.required">Address is required.</span>
+            </span>
+            </div>
+          <input type="submit" class="btn btn-success" ng-disabled="user.data.$dirty && user.data.$invalid" value="Submit" name="submit">
+        </div>
+
+    </form>

@@ -1,0 +1,27 @@
+
+<div class="container">
+<table class="table table-bordered table-striped">
+	<thead>
+		<th>Sr.No.</th>
+		<th>Name</th>
+		<th>Mobile Number</th>
+		<th>Email</th>
+		<th>Address</th>
+		<th colspan="2">Actions</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="record in records">
+			<td>{{$index + 1}} </td>
+			<td>{{record.first_name}} {{record.last_name}}</td>
+			<td>{{record.mobile}}</td>
+			<td>{{record.email}}</td>
+			<td>{{record.address}}</td>
+			<td><a ui-sref="edit({id:record.id})" class="btn btn-success btn-block">Edit</a></td>
+			<td>
+			<button type="button" class="btn btn-danger btn-block" ng-click="delete(record.id)">Delete</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+	
+</div>
